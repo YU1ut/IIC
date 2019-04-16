@@ -356,13 +356,13 @@ def _create_mapping_loader(config, dataset_class, tf3, partitions,
         root=config.dataset_root,
         transform=tf3,
         split=partition,
-        target_transform=target_transform)
+        target_transform=target_transform, download=True)
     else:
       imgs_curr = dataset_class(
         root=config.dataset_root,
         transform=tf3,
         train=partition,
-        target_transform=target_transform)
+        target_transform=target_transform, download=True)
 
     if truncate:
       print("shrinking dataset from %d" % len(imgs_curr))
