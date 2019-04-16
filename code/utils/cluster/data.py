@@ -303,13 +303,13 @@ def _create_dataloaders(config, dataset_class, tf1, tf2,
           root=config.dataset_root,
           transform=tf2,  # random per call
           split=train_partition,
-          target_transform=target_transform)
+          target_transform=target_transform, download=True)
       else:
         train_imgs_tf_curr = dataset_class(
           root=config.dataset_root,
           transform=tf2,
           train=train_partition,
-          target_transform=target_transform)
+          target_transform=target_transform, download=True)
 
       if hasattr(config, "mix_train"):
         if config.mix_train and (train_partition == "train+unlabeled"):
